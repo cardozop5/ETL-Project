@@ -2,7 +2,6 @@
 -- Link to schema: https://app.quickdatabasediagrams.com/#/d/OigECk
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
-
 CREATE TABLE "zip_codes" (
     "zip_code" int   NOT NULL,
     "city" varchar(255)   NOT NULL,
@@ -19,12 +18,12 @@ CREATE TABLE "texas_population_income" (
 );
 
 CREATE TABLE "yelp_houston_restaurants" (
-    "zip_code" int   NOT NULL,
-    "alias" varchar(255)   NOT NULL,
-    "name" varchar(255)   NOT NULL,
-    "price" varchar(255)   NOT NULL,
-    "rating" varchar(255)   NOT NULL,
-    "review_count" int   NOT NULL,
+    "zip_code" int   ,
+    "alias" varchar(255) NOT NULL ,
+    "name" varchar(255)   ,
+    "price" varchar(255)   ,
+    "rating" varchar(255)   ,
+    "review_count" int ,
     CONSTRAINT "pk_yelp_houston_restaurants" PRIMARY KEY (
         "alias"
      )
@@ -46,3 +45,4 @@ REFERENCES "zip_codes" ("zip_code");
 ALTER TABLE "house_prices" ADD CONSTRAINT "fk_house_prices_zip_code" FOREIGN KEY("zip_code")
 REFERENCES "zip_codes" ("zip_code");
 
+CREATE USER wen WITH PASSWORD '12345';
